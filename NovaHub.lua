@@ -3,6 +3,13 @@
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
+
+-- Wait for character to fully load
+if not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+    LocalPlayer.CharacterAdded:Wait()
+end
+task.wait(2)
+
 local Camera = workspace.CurrentCamera
 local CoreGui = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
